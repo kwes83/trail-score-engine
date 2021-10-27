@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using TrailScoringEngine.Controllers;
 
 namespace TrailScoreEngine
 {
@@ -6,7 +8,13 @@ namespace TrailScoreEngine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in new HtmlController().GetResults())
+            {
+                sb.AppendLine(item.ToString());
+            }
+
+            Console.WriteLine(sb);
         }
     }
 }
